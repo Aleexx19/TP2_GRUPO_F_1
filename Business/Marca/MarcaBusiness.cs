@@ -8,9 +8,9 @@ namespace Business
     public class MarcaBusiness 
     {
 
-        public List<Marca> GetMarcas()
+        public List<MarcaEntity> GetMarcas()
         {
-            var listMarcas = new List<Marca>();
+            var listMarcas = new List<MarcaEntity>();
             var marcaDao = new MarcaImp();
             try
             {

@@ -8,9 +8,9 @@ namespace Dao.Implements
     public class MarcaImp 
     {
 
-        public List<Marca> GetMarcas()
+        public List<MarcaEntity> GetMarcas()
         {
-            var listMarcas = new List<Marca>();
+            var listMarcas = new List<MarcaEntity>();
             DataAccess datos = new DataAccess();
 
             try
@@ -20,7 +20,7 @@ namespace Dao.Implements
 
                 while (datos.Reader.Read())
                 {
-                    var marca = new Marca();
+                    var marca = new MarcaEntity();
                     marca.Id = (int)datos.Reader["Id"];
                     marca.Descripcion = (string)datos.Reader["Descripcion"];
 
