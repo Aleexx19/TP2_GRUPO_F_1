@@ -15,7 +15,7 @@ namespace TP2_GRUPO_F_1
 
         private void frmMarca_Load(object sender, EventArgs e)
         {
-            var listMarcas = new List<Marca>();
+            var listMarcas = new List<MarcaEntity>();
             var marcaNegocio = new MarcaBusiness();
             listMarcas = marcaNegocio.GetMarcas();
             dgvMarca.DataSource = listMarcas;
