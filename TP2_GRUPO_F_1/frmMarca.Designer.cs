@@ -35,19 +35,22 @@
             // dgvMarca
             // 
             this.dgvMarca.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvMarca.Location = new System.Drawing.Point(21, 104);
+            this.dgvMarca.Location = new System.Drawing.Point(16, 36);
+            this.dgvMarca.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dgvMarca.Name = "dgvMarca";
             this.dgvMarca.RowHeadersWidth = 51;
             this.dgvMarca.RowTemplate.Height = 24;
-            this.dgvMarca.Size = new System.Drawing.Size(371, 203);
+            this.dgvMarca.Size = new System.Drawing.Size(404, 213);
             this.dgvMarca.TabIndex = 0;
+            this.dgvMarca.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvMarca_CellContentClick);
             // 
             // frmMarca
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(600, 366);
             this.Controls.Add(this.dgvMarca);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "frmMarca";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmMarca";

@@ -20,5 +20,10 @@ namespace TP2_GRUPO_F_1
             listMarcas = marcaNegocio.GetMarcas();
             dgvMarca.DataSource = listMarcas;
         }
+
+        private void dgvMarca_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }
