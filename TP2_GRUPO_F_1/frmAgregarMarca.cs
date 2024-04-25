@@ -28,10 +28,11 @@ namespace TP2_GRUPO_F_1
         {
             if (string.IsNullOrEmpty(txtDescripcion.Text))
             {
-                MessageBox.Show("El input no puede quedar vacío");
-            }
+                MessageBox.Show("El input no puede quedar vacío"); //Agrega igual !
+            }else
+            { 
 
-            MarcaEntity marca = new MarcaEntity();
+            MarcaEntity marca = new MarcaEntity(); //Lo mando dentro de un else
             marca.Descripcion = txtDescripcion.Text;
 
             MarcaBusiness marcaBusiness = new MarcaBusiness();
@@ -50,7 +51,7 @@ namespace TP2_GRUPO_F_1
 
                 MessageBox.Show("Ocurrió un error al insertar " +  ex.Message);
             }
-            
+            }
         }
     }
 }
