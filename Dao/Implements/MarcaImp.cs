@@ -62,6 +62,27 @@ namespace Dao.Implements
         }
 
         //Modificar (update).
+        public int ModificarMarca(MarcaEntity marca)
+        {
+            DataAccess datos = new DataAccess();
+            string consulta = string.Format("update marca set Descripcion = '{0}' where id = {1} ", marca.Descripcion, marca.Id ); //Acá armo la consulta
+
+            try
+            {
+                datos.setearConsulta(consulta); //Acá ya la preparo 
+                return datos.ejecutarAccion(); //Acá lo ejecuto
+
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
 
     }
 }

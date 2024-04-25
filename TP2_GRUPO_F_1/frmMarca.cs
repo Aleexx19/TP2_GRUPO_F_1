@@ -32,7 +32,8 @@ namespace TP2_GRUPO_F_1
             ventana.ShowDialog();
 
             MarcaEntity seleccionada; //Estoy trabajando en el modificar de Marca.
-            seleccionada = (MarcaEntity)dgvMarca.CurrentRow.DataBoundItem; //continuar desde acá
+            seleccionada = (MarcaEntity)dgvMarca.CurrentRow.DataBoundItem; 
+
         }
     }
 }

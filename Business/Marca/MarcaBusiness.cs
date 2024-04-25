@@ -38,6 +38,22 @@ namespace Business
                 throw ex;
             }    
             
-        }    
+        }
+        //ésto está del modificar
+        public int ModificarMarca(MarcaEntity marca)
+        {
+            MarcaImp marcaImp = new MarcaImp();
+
+            try
+            {
+                return marcaImp.ModificarMarca(marca);
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+
+        }
     }
 }

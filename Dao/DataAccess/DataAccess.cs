@@ -19,6 +19,11 @@ namespace Dao.DataAccessObject
             command = new SqlCommand();
         }
 
+        public void setearParametro(string nombre, object valor)
+        {
+            command.Parameters.AddWithValue(nombre, valor);
+        }
+
         public void setearConsulta(string consulta)
         {
             command.CommandType = System.Data.CommandType.Text;

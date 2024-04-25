@@ -32,6 +32,7 @@
             this.txtModificar = new System.Windows.Forms.TextBox();
             this.btnAceptarModificar = new System.Windows.Forms.Button();
             this.btnCancelarModificar = new System.Windows.Forms.Button();
+            this.lblidOculto = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lblModificar
@@ -58,6 +59,7 @@
             this.btnAceptarModificar.TabIndex = 2;
             this.btnAceptarModificar.Text = "Aceptar";
             this.btnAceptarModificar.UseVisualStyleBackColor = true;
+            this.btnAceptarModificar.Click += new System.EventHandler(this.btnAceptarModificar_Click);
             // 
             // btnCancelarModificar
             // 
@@ -67,12 +69,22 @@
             this.btnCancelarModificar.TabIndex = 3;
             this.btnCancelarModificar.Text = "Cancelar";
             this.btnCancelarModificar.UseVisualStyleBackColor = true;
+            this.btnCancelarModificar.Click += new System.EventHandler(this.btnCancelarModificar_Click);
+            // 
+            // lblidOculto
+            // 
+            this.lblidOculto.AutoSize = true;
+            this.lblidOculto.Location = new System.Drawing.Point(46, 20);
+            this.lblidOculto.Name = "lblidOculto";
+            this.lblidOculto.Size = new System.Drawing.Size(0, 13);
+            this.lblidOculto.TabIndex = 4;
             // 
             // frmModificarMarca
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(328, 191);
+            this.Controls.Add(this.lblidOculto);
             this.Controls.Add(this.btnCancelarModificar);
             this.Controls.Add(this.btnAceptarModificar);
             this.Controls.Add(this.txtModificar);
@@ -90,5 +102,6 @@
         private System.Windows.Forms.TextBox txtModificar;
         private System.Windows.Forms.Button btnAceptarModificar;
         private System.Windows.Forms.Button btnCancelarModificar;
+        private System.Windows.Forms.Label lblidOculto;
     }
 }
