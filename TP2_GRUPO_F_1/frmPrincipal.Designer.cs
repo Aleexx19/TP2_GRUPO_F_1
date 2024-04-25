@@ -33,7 +33,6 @@
             this.marcaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.listadoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.nuevoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.modificarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.categoriaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.listadoToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
@@ -64,8 +63,7 @@
             // 
             this.marcaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.listadoToolStripMenuItem,
-            this.nuevoToolStripMenuItem,
-            this.modificarToolStripMenuItem});
+            this.nuevoToolStripMenuItem});
             this.marcaToolStripMenuItem.Name = "marcaToolStripMenuItem";
             this.marcaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.marcaToolStripMenuItem.Text = "Marca";
@@ -83,12 +81,6 @@
             this.nuevoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.nuevoToolStripMenuItem.Text = "Nuevo";
             this.nuevoToolStripMenuItem.Click += new System.EventHandler(this.nuevoToolStripMenuItem_Click);
-            // 
-            // modificarToolStripMenuItem
-            // 
-            this.modificarToolStripMenuItem.Name = "modificarToolStripMenuItem";
-            this.modificarToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.modificarToolStripMenuItem.Text = "Modificar";
             // 
             // categoriaToolStripMenuItem
             // 
@@ -132,7 +124,6 @@
         private System.Windows.Forms.ToolStripMenuItem marcaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem listadoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem nuevoToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem modificarToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem categoriaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem listadoToolStripMenuItem1;
     }

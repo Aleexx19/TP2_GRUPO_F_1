@@ -25,5 +25,14 @@ namespace TP2_GRUPO_F_1
         {
 
         }
+
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+            var ventana = new frmModificarMarca();
+            ventana.ShowDialog();
+
+            MarcaEntity seleccionada; //Estoy trabajando en el modificar de Marca.
+            seleccionada = (MarcaEntity)dgvMarca.CurrentRow.DataBoundItem; //continuar desde acá
+        }
     }
 }

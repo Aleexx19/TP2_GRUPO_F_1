@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Domain.Entities;
+using System;
 using System.Windows.Forms;
+
 
 namespace TP2_GRUPO_F_1
 {
@@ -55,5 +57,7 @@ namespace TP2_GRUPO_F_1
             frmAgregarMarca alta = new frmAgregarMarca();
             alta.ShowDialog();
         }
+
+       //Borré el boton de modificar, y lo puse dentro del listado.
     }
 }
