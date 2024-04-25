@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.lblCategoriaAgregarMarca = new System.Windows.Forms.Label();
-            this.txtCategoriaAgregarMarca = new System.Windows.Forms.TextBox();
+            this.txtDescripcion = new System.Windows.Forms.TextBox();
             this.btnAceptar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -43,12 +43,12 @@
             this.lblCategoriaAgregarMarca.TabIndex = 0;
             this.lblCategoriaAgregarMarca.Text = "Descripción: ";
             // 
-            // txtCategoriaAgregarMarca
+            // txtDescripcion
             // 
-            this.txtCategoriaAgregarMarca.Location = new System.Drawing.Point(121, 37);
-            this.txtCategoriaAgregarMarca.Name = "txtCategoriaAgregarMarca";
-            this.txtCategoriaAgregarMarca.Size = new System.Drawing.Size(100, 20);
-            this.txtCategoriaAgregarMarca.TabIndex = 1;
+            this.txtDescripcion.Location = new System.Drawing.Point(121, 37);
+            this.txtDescripcion.Name = "txtDescripcion";
+            this.txtDescripcion.Size = new System.Drawing.Size(100, 20);
+            this.txtDescripcion.TabIndex = 1;
             // 
             // btnAceptar
             // 
@@ -77,7 +77,7 @@
             this.ClientSize = new System.Drawing.Size(316, 180);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnAceptar);
-            this.Controls.Add(this.txtCategoriaAgregarMarca);
+            this.Controls.Add(this.txtDescripcion);
             this.Controls.Add(this.lblCategoriaAgregarMarca);
             this.Name = "frmAgregarMarca";
             this.Text = "Agregar Marca";
@@ -89,7 +89,7 @@
         #endregion
 
         private System.Windows.Forms.Label lblCategoriaAgregarMarca;
-        private System.Windows.Forms.TextBox txtCategoriaAgregarMarca;
+        private System.Windows.Forms.TextBox txtDescripcion;
         private System.Windows.Forms.Button btnAceptar;
         private System.Windows.Forms.Button btnCancelar;
     }

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Business;
+using Domain.Entities;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -24,7 +26,31 @@ namespace TP2_GRUPO_F_1
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrEmpty(txtDescripcion.Text))
+            {
+                MessageBox.Show("El input no puede quedar vacío");
+            }
 
+            MarcaEntity marca = new MarcaEntity();
+            marca.Descripcion = txtDescripcion.Text;
+
+            MarcaBusiness marcaBusiness = new MarcaBusiness();
+            try
+            {
+                if(marcaBusiness.AgregarMarca(marca) > 0)
+                {
+                    MessageBox.Show("Se agregó con éxito.");
+                } else 
+                {
+                    MessageBox.Show("Hubo un problema al insertar.");
+                }
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("Ocurrió un error al insertar " +  ex.Message);
+            }
+            
         }
     }
 }
