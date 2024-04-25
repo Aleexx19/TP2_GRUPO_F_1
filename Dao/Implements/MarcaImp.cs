@@ -39,7 +39,7 @@ namespace Dao.Implements
             }
         }
 
-       public int AgregarMarca(MarcaEntity marca)
+       public int AgregarMarca(MarcaEntity marca) //Tomar éste código y reutilizarlo para Artiuclos. Porque el crud es para Articulos y no para Marcas o Categorias
         {
             DataAccess datos = new DataAccess();
             string consulta = string.Format("insert marcas (Descripcion) values ('{0}')", marca.Descripcion); //Acá armo la consulta
