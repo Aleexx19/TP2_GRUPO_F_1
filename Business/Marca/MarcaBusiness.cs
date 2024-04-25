@@ -23,5 +23,21 @@ namespace Business
                 throw ex;
             }
         }
+
+        public int AgregarMarca (MarcaEntity marca)
+        {
+            MarcaImp marcaImp = new MarcaImp();
+
+            try
+            {
+               return marcaImp.AgregarMarca (marca);
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }    
+            
+        }    
     }
 }
