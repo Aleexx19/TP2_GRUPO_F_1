@@ -39,6 +39,21 @@ namespace Dao.DataAccessObject
             }
         }
 
+        public void ejecutarAccion()
+        {
+            command.Connection = connection;
+            try
+            {
+                connection.Open();
+                command.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
         public void cerrarConexion()
         {
             if(reader != null) reader.Close();
