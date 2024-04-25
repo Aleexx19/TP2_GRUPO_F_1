@@ -12,7 +12,7 @@ namespace Domain.Entities
         public int CodArticulo { get; set; }
         public string nombre { get; set; }
         public string descripcion { get; set; }
-        public SqlMoney precio { get; set; }
+        public decimal precio { get; set; }
 
     }
 }

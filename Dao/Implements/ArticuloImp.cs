@@ -18,16 +18,16 @@ namespace Dao.Implements
 
             try
             {
-                datos.setearConsulta(""); //completar consulta
+                datos.setearConsulta("select Codigo,Nombre,Descripcion,Precio from ARTICULOS"); 
                 datos.ejecutarLectura();
 
                 while (datos.Reader.Read())
                 {
                     var articulo = new ArticuloEntity(); //completar los campos con marcas y cat
-                    articulo.CodArticulo = (int)datos.Reader["codArticulo"];
+                  articulo.CodArticulo = (int)datos.Reader["Codigo"];
                     articulo.nombre = (string)datos.Reader["Nombre"];
                     articulo.descripcion = (string)datos.Reader["Descripcion"];
-                    articulo.precio = (SqlMoney)datos.Reader["Precio"];
+                    articulo.precio = (decimal)datos.Reader["Precio"];
 
                     listArticulos.Add(articulo);
                 }
