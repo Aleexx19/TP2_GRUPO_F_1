@@ -49,5 +49,11 @@ namespace TP2_GRUPO_F_1
             ventana.MdiParent = this;
             ventana.Show();
         }
+
+        private void nuevoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmAgregarMarca alta = new frmAgregarMarca();
+            alta.ShowDialog();
+        }
     }
 }
