@@ -39,13 +39,14 @@ namespace Dao.DataAccessObject
             }
         }
 
-        public void ejecutarAccion()
+        public int ejecutarAccion()
         {
             command.Connection = connection;
             try
             {
                 connection.Open();
-                command.ExecuteNonQuery();
+               return command.ExecuteNonQuery(); //Si no pudo hacerse la insercion va a devolver 0
+
             }
             catch (Exception ex)
             {

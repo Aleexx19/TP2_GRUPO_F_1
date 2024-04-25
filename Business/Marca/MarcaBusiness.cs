@@ -7,7 +7,7 @@ namespace Business
 {
     public class MarcaBusiness 
     {
-
+        //Acá va el codigo para crud.
         public List<MarcaEntity> GetMarcas()
         {
             var listMarcas = new List<MarcaEntity>();
