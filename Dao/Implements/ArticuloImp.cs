@@ -24,7 +24,7 @@ namespace Dao.Implements
                 while (datos.Reader.Read())
                 {
                     var articulo = new ArticuloEntity(); //completar los campos con marcas y cat
-                  articulo.CodArticulo = (int)datos.Reader["Codigo"];
+                    articulo.CodArticulo = (string)datos.Reader["Codigo"];
                     articulo.nombre = (string)datos.Reader["Nombre"];
                     articulo.descripcion = (string)datos.Reader["Descripcion"];
                     articulo.precio = (decimal)datos.Reader["Precio"];
