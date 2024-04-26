@@ -42,23 +42,23 @@ namespace Business.Articulo
                 throw ex;
             }
         }
+
+        public void Eliminar(int id)
+        {
+            ArticuloImp articuloImp = new ArticuloImp();
+            try
+            {
+                articuloImp.Eliminar(id);
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+
+        }
+
     }
+   
 
-    
-    /*  continuar despues de terminar el art imp
-    public int AgregarArticulo(ArticuloEntity art)
-    {
-        ArticuloImp artImp = new ArticuloImp();
-
-        try
-        {
-            return artImp.AgregarArticulo(art);
-        }
-        catch (Exception ex)
-        {
-
-            throw ex;
-        }
-
-    }*/
-}
+    }

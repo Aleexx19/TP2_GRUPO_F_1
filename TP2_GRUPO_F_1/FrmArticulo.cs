@@ -11,6 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace TP2_GRUPO_F_1
 {
     public partial class FrmArticulo : Form
@@ -28,7 +29,7 @@ namespace TP2_GRUPO_F_1
 
         }
 
-            private void dgvArticulo_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void dgvArticulo_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             /*  ArticuloBussines articulo = new ArticuloBussines();
               dgvArticulo.DataSource = listArticulos
@@ -45,6 +46,33 @@ namespace TP2_GRUPO_F_1
         {
             frmAgregarArticulo agregar = new frmAgregarArticulo();
             agregar.ShowDialog();
+
+
         }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+
+            ArticuloBussines negocio = new ArticuloBussines();
+            ArticuloEntity seleccion;
+            try
+            {
+                seleccion = (ArticuloEntity)dgvArticulo.CurrentRow.DataBoundItem;
+                negocio.Eliminar(seleccion.Id);
+
+                var listArticulo = negocio.GetArticulo();
+                dgvArticulo.DataSource = null;
+                dgvArticulo.DataSource = listArticulo;
+                
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+
+        }
+       
     }
 }
+
+

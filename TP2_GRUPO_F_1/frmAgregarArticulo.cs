@@ -44,14 +44,19 @@ namespace TP2_GRUPO_F_1
 
                 bussines.agregarArticulo(arti);
                 MessageBox.Show("Agregado de manera exitosa.");
-                Close(); 
-
-
+                Close();
+              
+                
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.ToString());
             } 
+        }
+
+        private void frmAgregarArticulo_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
