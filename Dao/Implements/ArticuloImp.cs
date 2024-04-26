@@ -43,5 +43,27 @@ namespace Dao.Implements
                 datos.cerrarConexion();
             }
         }
+        
+        public int AgregarArticulo(ArticuloEntity art) 
+        {
+            DataAccess datos = new DataAccess();
+            string consulta = string.Format("insert into ARTICULOS (Codigo, Nombre, Descripcion, Precio) values ('"+ art.CodArticulo+"', '"+ art.nombre +"', '"+ art.descripcion +"', "+ art.precio +")");
+
+            try
+            {
+                datos.setearConsulta(consulta); //Acá ya la preparo 
+                return datos.ejecutarAccion(); //Acá lo ejecuto
+
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
     }
 }

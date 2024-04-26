@@ -40,5 +40,11 @@ namespace TP2_GRUPO_F_1
 
                 */
         }
+
+        private void btnAgregar_Click(object sender, EventArgs e)
+        {
+            frmAgregarArticulo agregar = new frmAgregarArticulo();
+            agregar.ShowDialog();
+        }
     }
 }

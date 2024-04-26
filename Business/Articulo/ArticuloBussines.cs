@@ -5,6 +5,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data.SqlClient;
+using System.Text.RegularExpressions;
+
 
 namespace Business.Articulo
 {
@@ -25,5 +28,37 @@ namespace Business.Articulo
                 throw ex;
             }
         }
+         
+        public int agregarArticulo(ArticuloEntity nuevo)
+        {
+            ArticuloImp artImp = new ArticuloImp();
+            try
+            {
+                return artImp.AgregarArticulo(nuevo);
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
     }
+
+    
+    /*  continuar despues de terminar el art imp
+    public int AgregarArticulo(ArticuloEntity art)
+    {
+        ArticuloImp artImp = new ArticuloImp();
+
+        try
+        {
+            return artImp.AgregarArticulo(art);
+        }
+        catch (Exception ex)
+        {
+
+            throw ex;
+        }
+
+    }*/
 }
