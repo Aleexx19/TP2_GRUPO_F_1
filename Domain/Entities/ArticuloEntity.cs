@@ -15,5 +15,8 @@ namespace Domain.Entities
         public string descripcion { get; set; }
         public decimal precio { get; set; }
 
+        public MarcaEntity Marca { get; set; }
+        public CategoriaEntity Categoria { get; set; }
+
     }
 }

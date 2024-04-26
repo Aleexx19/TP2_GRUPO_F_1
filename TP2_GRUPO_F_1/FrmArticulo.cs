@@ -26,21 +26,10 @@ namespace TP2_GRUPO_F_1
             var ArticuloNegocio = new ArticuloBussines();
             listArticulo = ArticuloNegocio.GetArticulo();
             dgvArticulo.DataSource = listArticulo;
+            //Tmb arreglar el desplegable de marcas y categorias
 
         }
 
-        private void dgvArticulo_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            /*  ArticuloBussines articulo = new ArticuloBussines();
-              dgvArticulo.DataSource = listArticulos
-            
-            var listArticulo = new List<ArticuloEntity>();
-            var ArticuloNegocio = new ArticuloBussines();
-            listArticulo = ArticuloNegocio.GetArticulo();
-            dgvArticulo.DataSource = listArticulo;
-
-                */
-        }
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {

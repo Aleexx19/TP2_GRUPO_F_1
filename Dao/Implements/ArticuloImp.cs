@@ -18,16 +18,28 @@ namespace Dao.Implements
 
             try
             {
-                datos.setearConsulta("select Id,Codigo,Nombre,Descripcion,Precio from ARTICULOS");
+               // datos.setearConsulta("select Id,Codigo,Nombre,Descripcion,IdMarca,IdCategoria,Precio from ARTICULOS");
+                datos.setearConsulta("SELECT  A.ID, A.CODIGO, A.NOMBRE, A.DESCRIPCION, A.IdMarca, M.Descripcion AS DSM," +
+                    " A.IdCategoria, C.Descripcion AS DSC, A.Precio  FROM ARTICULOS A INNER JOIN MARCAS M ON (A.IdMarca=M.Id)" +
+                    " INNER JOIN CATEGORIAS C ON (A.IdCategoria=C.Id)");
+
                 datos.ejecutarLectura();
 
                 while (datos.Reader.Read())
                 {
-                    var articulo = new ArticuloEntity(); //completar los campos con marcas y cat
+                    var articulo = new ArticuloEntity(); //completar los campos con marcas y cat.
                     articulo.Id = (int)datos.Reader["id"];
                     articulo.CodArticulo = (string)datos.Reader["Codigo"];
                     articulo.nombre = (string)datos.Reader["Nombre"];
                     articulo.descripcion = (string)datos.Reader["Descripcion"];
+
+                    articulo.Marca = new MarcaEntity();
+                    articulo.Categoria = new CategoriaEntity();
+
+                    articulo.Marca.Id = (int)datos.Reader["IdMarca"];
+                    articulo.Marca.Descripcion = (string)datos.Reader["DSM"];
+                    articulo.Categoria.Id = (int)datos.Reader["IdCategoria"];
+                    articulo.Categoria.Descripcion = (string)datos.Reader["DSC"];
                     articulo.precio = (decimal)datos.Reader["Precio"];
 
                     listArticulos.Add(articulo);

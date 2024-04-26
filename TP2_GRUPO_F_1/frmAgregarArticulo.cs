@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using Domain;
 using Business;
 using Business.Articulo;
+using Business.Marca;
 
 
 
@@ -53,8 +54,26 @@ namespace TP2_GRUPO_F_1
                 MessageBox.Show(ex.ToString());
             } 
         }
-
+        //  Desarrollando ahora, 26/4 20hs
         private void frmAgregarArticulo_Load(object sender, EventArgs e)
+        {
+            
+            CategoriaBusiness cat = new CategoriaBusiness();
+            MarcaBusiness marc = new MarcaBusiness();
+            
+            try
+            {
+                cboMarca.DataSource = marc.GetMarcas();//Arreglar para que salgan las opciones
+                cboCategoria.DataSource = cat.GetCategorias(); //Idem
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.ToString());
+            }
+        }
+
+        private void cboMarca_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
