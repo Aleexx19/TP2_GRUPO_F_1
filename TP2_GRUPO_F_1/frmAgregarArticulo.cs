@@ -32,7 +32,6 @@ namespace TP2_GRUPO_F_1
         private void btnAceptar_Click(object sender, EventArgs e)
         {
             
-
             ArticuloEntity arti = new ArticuloEntity();
             ArticuloBussines bussines = new ArticuloBussines();
 

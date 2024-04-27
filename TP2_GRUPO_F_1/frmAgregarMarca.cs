@@ -32,6 +32,12 @@ namespace TP2_GRUPO_F_1
                 return; //modificado por un return.
             }
 
+            if(txtDescripcion.Text.Length > 50)
+            {
+                MessageBox.Show("No puede excederse de 50 caracteres");
+                return; 
+            }
+
             MarcaEntity marca = new MarcaEntity(); 
             marca.Descripcion = txtDescripcion.Text;
 
@@ -41,6 +47,8 @@ namespace TP2_GRUPO_F_1
                 if(marcaBusiness.AgregarMarca(marca) > 0)
                 {
                     MessageBox.Show("Se agregó con éxito.");
+                    Close();
+
                 } else 
                 {
                     MessageBox.Show("Hubo un problema al insertar.");

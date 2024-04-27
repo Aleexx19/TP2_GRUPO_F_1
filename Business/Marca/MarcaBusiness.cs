@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace Business
 {
-    public class MarcaBusiness 
+    public class MarcaBusiness
     {
         //Acá va el codigo para crud.
         public List<MarcaEntity> GetMarcas()
@@ -18,26 +18,26 @@ namespace Business
 
                 return listMarcas;
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 throw ex;
             }
         }
 
-        public int AgregarMarca (MarcaEntity marca)
+        public int AgregarMarca(MarcaEntity marca)
         {
             MarcaImp marcaImp = new MarcaImp();
 
             try
             {
-               return marcaImp.AgregarMarca (marca);
+                return marcaImp.AgregarMarca(marca);
             }
             catch (Exception ex)
             {
 
                 throw ex;
-            }    
-            
+            }
+
         }
         //ésto está del modificar
         public int ModificarMarca(MarcaEntity marca)
@@ -50,10 +50,25 @@ namespace Business
             }
             catch (Exception ex)
             {
-
                 throw ex;
-            }
 
+            }
         }
+
+        public int EliminarMarca(int id)
+        {
+            MarcaImp marcaImp = new MarcaImp();
+
+            try
+            {
+                return marcaImp.EliminarMarca(id);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+
+            }
+        }
+
     }
 }

@@ -75,6 +75,22 @@ namespace TP2_GRUPO_F_1
 
         }
 
+        private void marcaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            foreach (var item in Application.OpenForms)
+            {
+                if (item.GetType() == typeof(frmMarca))
+                {
+                    MessageBox.Show("No se puede abrir la misma ventana cuando esta en uso");
+                    return;
+                }
+            }
+
+            var ventana = new frmMarca();
+            ventana.MdiParent = this;
+            ventana.Show();
+        }
+
         //Borré el boton de modificar, y lo puse dentro del listado.
     }
 }
