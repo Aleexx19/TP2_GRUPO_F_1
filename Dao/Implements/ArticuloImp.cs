@@ -18,16 +18,16 @@ namespace Dao.Implements
 
             try
             {
-               // datos.setearConsulta("select Id,Codigo,Nombre,Descripcion,IdMarca,IdCategoria,Precio from ARTICULOS");
+              
                 datos.setearConsulta("SELECT  A.ID, A.CODIGO, A.NOMBRE, A.DESCRIPCION, A.IdMarca, M.Descripcion AS DSM," +
                     " A.IdCategoria, C.Descripcion AS DSC, A.Precio  FROM ARTICULOS A INNER JOIN MARCAS M ON (A.IdMarca=M.Id)" +
                     " INNER JOIN CATEGORIAS C ON (A.IdCategoria=C.Id)");
 
                 datos.ejecutarLectura();
-
+                
                 while (datos.Reader.Read())
                 {
-                    var articulo = new ArticuloEntity(); //completar los campos con marcas y cat.
+                    var articulo = new ArticuloEntity(); 
                     articulo.Id = (int)datos.Reader["id"];
                     articulo.CodArticulo = (string)datos.Reader["Codigo"];
                     articulo.nombre = (string)datos.Reader["Nombre"];
@@ -45,6 +45,9 @@ namespace Dao.Implements
                     listArticulos.Add(articulo);
                 }
 
+               
+
+
                 return listArticulos;
             }
             catch (Exception ex)
@@ -59,14 +62,13 @@ namespace Dao.Implements
 
         public int AgregarArticulo(ArticuloEntity art)
         {
-            DataAccess datos = new DataAccess();
+            DataAccess datos = new DataAccess(); //La proxima linea necesita agregar Categoria y Marca !
             string consulta = string.Format("insert into ARTICULOS (Codigo, Nombre, Descripcion, Precio) values ('" + art.CodArticulo + "', '" + art.nombre + "', '" + art.descripcion + "', " + art.precio + ")");
 
             try
             {
-                datos.setearConsulta(consulta); //Acá ya la preparo 
-                return datos.ejecutarAccion(); //Acá lo ejecuto
-
+                datos.setearConsulta(consulta); 
+                return datos.ejecutarAccion(); 
             }
             catch (Exception ex)
             {
