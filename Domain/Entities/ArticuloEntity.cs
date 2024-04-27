@@ -1,21 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.SqlTypes;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Domain.Entities
+﻿namespace Domain.Entities
 {
     public class ArticuloEntity
     {   
         public int Id { get; set; }
         public string CodArticulo { get; set; }
-        public string nombre { get; set; }
-        public string descripcion { get; set; }
+        public string Nombre { get; set; }
+        public string Descripcion { get; set; }
         public MarcaEntity Marca { get; set; }
         public CategoriaEntity Categoria { get; set; }
-        public decimal precio { get; set; }
+        public decimal Precio { get; set; }
 
         
 

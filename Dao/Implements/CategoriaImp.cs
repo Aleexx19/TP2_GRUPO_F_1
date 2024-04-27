@@ -32,7 +32,6 @@ namespace Dao.Implements
             }
             catch (Exception ex)
             {
-
                 throw ex;
             }
             finally

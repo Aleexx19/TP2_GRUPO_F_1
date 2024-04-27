@@ -42,17 +42,17 @@ namespace Dao.Implements
        public int AgregarMarca(MarcaEntity marca) 
         {
             DataAccess datos = new DataAccess();
-            string consulta = string.Format("insert marcas (Descripcion) values ('{0}')", marca.Descripcion); 
+            string consulta = "insert marcas (Descripcion) values (@descripcion)"; 
 
             try
             {
-                datos.setearConsulta(consulta); 
+                datos.setearConsulta(consulta);
+                datos.setearParametro("@descripcion",marca.Descripcion);
                 return datos.ejecutarAccion(); 
                 
             }
             catch (Exception ex)
             {
-
                 throw ex;
             }
             finally 
@@ -65,17 +65,18 @@ namespace Dao.Implements
         public int ModificarMarca(MarcaEntity marca)
         {
             DataAccess datos = new DataAccess();
-            string consulta = string.Format("update marca set Descripcion = '{0}' where id = {1} ", marca.Descripcion, marca.Id ); //Acá armo la consulta
+            string consulta = "update marca set Descripcion = @descripcion where Id = @id "; //Acá armo la consulta
 
             try
             {
                 datos.setearConsulta(consulta); //Acá ya la preparo 
+                datos.setearParametro("@id", marca.Id);
+                datos.setearParametro("@descripcion", marca.Descripcion);
                 return datos.ejecutarAccion(); //Acá lo ejecuto
 
             }
             catch (Exception ex)
             {
-
                 throw ex;
             }
             finally

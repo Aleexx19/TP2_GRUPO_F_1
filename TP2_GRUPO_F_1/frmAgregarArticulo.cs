@@ -39,9 +39,9 @@ namespace TP2_GRUPO_F_1
             try 
             { 
                 arti.CodArticulo = txtCodigo.Text;
-                arti.nombre = txtNombre.Text;
-                arti.descripcion = txtDescricpion.Text;
-                arti.precio = decimal.Parse(txtPrecio.Text);
+                arti.Nombre = txtNombre.Text;
+                arti.Descripcion = txtDescricpion.Text;
+                arti.Precio = decimal.Parse(txtPrecio.Text);
 
                 bussines.agregarArticulo(arti);
                 MessageBox.Show("Agregado de manera exitosa.");
