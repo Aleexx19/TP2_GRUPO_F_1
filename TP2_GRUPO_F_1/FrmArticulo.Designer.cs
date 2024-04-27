@@ -45,7 +45,7 @@
             this.dgvArticulo.RowTemplate.Height = 24;
             this.dgvArticulo.Size = new System.Drawing.Size(476, 198);
             this.dgvArticulo.TabIndex = 0;
-            
+            this.dgvArticulo.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvArticulo_CellContentClick);
             // 
             // btnAgregar
             // 

@@ -13,10 +13,11 @@ namespace Domain.Entities
         public string CodArticulo { get; set; }
         public string nombre { get; set; }
         public string descripcion { get; set; }
-        public decimal precio { get; set; }
-
         public MarcaEntity Marca { get; set; }
         public CategoriaEntity Categoria { get; set; }
+        public decimal precio { get; set; }
+
+        
 
     }
 }

@@ -64,7 +64,9 @@ namespace TP2_GRUPO_F_1
             try
             {
                 cboMarca.DataSource = marc.GetMarcas();//Arreglar para que salgan las opciones
+                cboMarca.DisplayMember = "Descripcion";
                 cboCategoria.DataSource = cat.GetCategorias(); //Idem
+                cboCategoria.DisplayMember = "Descripcion";
             }
             catch (Exception ex)
             {
