@@ -23,5 +23,49 @@ namespace Business.Marca
                 throw ex;
             }
         }
+        public int AgregarCategoria(CategoriaEntity categoria)
+        {
+            CategoriaImp catImp = new CategoriaImp();
+
+            try
+            {
+                return catImp.AgregarCategoria(categoria);
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+
+        }
+        public int ModificarCategoria(CategoriaEntity categoria)
+        {
+            CategoriaImp catImp = new CategoriaImp();
+
+            try
+            {
+                return catImp.ModificarCategoria(categoria);
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+
+        }
+        public int EliminarCategoria(int id)
+        {
+            CategoriaImp categoImp = new CategoriaImp();
+
+            try
+            {
+                return categoImp.EliminarCategoria(id);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+
+            }
+        }
     }
 }

@@ -39,6 +39,62 @@ namespace Dao.Implements
                 datos.cerrarConexion();
             }
         }
+        public int AgregarCategoria(CategoriaEntity categoria)
+        {
+            DataAccess datos = new DataAccess();
+            string consulta = "insert categorias (Descripcion) values (@descripcion)";
 
+            try
+            {
+                datos.setearConsulta(consulta);
+                datos.setearParametro("@descripcion", categoria.Descripcion);
+                return datos.ejecutarAccion();
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
+        public int ModificarCategoria(CategoriaEntity categoria)
+        {
+            DataAccess datos = new DataAccess();
+            string consulta = "update categorias set Descripcion = @descripcion where Id = @id ";
+
+            try
+            {
+                datos.setearConsulta(consulta);
+                datos.setearParametro("@id", categoria.Id);
+                datos.setearParametro("@descripcion", categoria.Descripcion);
+                return datos.ejecutarAccion();
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
+        public int EliminarCategoria(int id)
+        {
+            DataAccess datos = new DataAccess();
+            try
+            {
+                datos.setearConsulta("DELETE CATEGORIAS WHERE Id = @id");
+                datos.setearParametro("@id", id);
+                return datos.ejecutarAccion();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }
