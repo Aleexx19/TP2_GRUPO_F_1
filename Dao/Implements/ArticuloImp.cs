@@ -153,8 +153,7 @@ namespace Dao.Implements
             try
             {
                 DataAccess datos = new DataAccess();
-                datos.setearConsulta("delete ARTICULOS where Id = @id");
-                datos.setearConsulta("delete IMAGENES where IdArticulo = @id");
+                datos.setearConsulta("delete ARTICULOS where Id = @id delete IMAGENES where IdArticulo = @id");
 
                 datos.setearParametro("@id", id);
                 datos.ejecutarAccion();
