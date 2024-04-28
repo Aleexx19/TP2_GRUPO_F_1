@@ -81,19 +81,27 @@ namespace TP2_GRUPO_F_1
 
             ArticuloBussines negocio = new ArticuloBussines();
             ArticuloEntity seleccion;
-            try
-            {
-                seleccion = (ArticuloEntity)dgvArticulo.CurrentRow.DataBoundItem;
-                negocio.Eliminar(seleccion.Id);
 
-                var listArticulo = negocio.GetArticulo();
-                dgvArticulo.DataSource = null;
-                dgvArticulo.DataSource = listArticulo;
-                
-            }
-            catch (Exception ex)
+            DialogResult respuesta = MessageBox.Show("¿Desea eliminar este registro?", "Eliminando", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (respuesta == DialogResult.Yes)
             {
-                MessageBox.Show(ex.ToString());
+                try
+                {
+
+                    seleccion = (ArticuloEntity)dgvArticulo.CurrentRow.DataBoundItem;
+                    negocio.Eliminar(seleccion.Id);
+
+                    var listArticulo = negocio.GetArticulo();
+                    dgvArticulo.DataSource = null;
+                    dgvArticulo.DataSource = listArticulo;
+
+                    cargar();
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.ToString());
+                }
             }
 
         }
