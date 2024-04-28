@@ -2,11 +2,6 @@
 using Domain.Entities;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Data.SqlClient;
-using System.Text.RegularExpressions;
 
 
 namespace Business.Articulo
@@ -67,7 +62,6 @@ namespace Business.Articulo
             }
             catch (Exception ex)
             {
-
                 throw ex;
             }
         }

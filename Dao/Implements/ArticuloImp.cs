@@ -120,11 +120,28 @@ namespace Dao.Implements
 
         public int ModificarArticulo(ArticuloEntity art)
         {
-            DataAccess datos = new DataAccess(); 
-            string consulta = "UPDATE ARTICULOS " +
-                "SET Codigo = @codigo, Nombre = @nombre, Descripcion = @descripcion, " +
-                "IdMarca = @idMarca, IdCategoria = @idCategoria, Precio = @precio " +
-                "WHERE ID = @id";
+            DataAccess datos = new DataAccess();
+
+            #region Consulta
+            string consulta = @"BEGIN TRY
+                                BEGIN TRAN
+
+                                UPDATE ARTICULOS  
+                                SET Codigo = @codigo, Nombre = @nombre, Descripcion = @descripcion, 
+                                IdMarca = @idMarca, IdCategoria = @idCategoria, Precio = @precio 
+                                WHERE ID = @id
+
+                                UPDATE IMAGENES
+                                SET ImagenUrl = @imagenUrl
+                                WHERE IdArticulo = @id
+
+                                COMMIT TRAN
+                                END TRY
+                                BEGIN CATCH
+                                IF @@TRANCOUNT > 0
+                                ROLLBACK TRAN;
+                                END CATCH";
+            #endregion
 
             try
             {
@@ -135,6 +152,7 @@ namespace Dao.Implements
                 datos.setearParametro("@idMarca", art.Marca.Id);
                 datos.setearParametro("@idCategoria", art.Categoria.Id);
                 datos.setearParametro("@precio", art.Precio);
+                datos.setearParametro("@imagenUrl", art.Imagen.UrlImagen);
                 datos.setearParametro("@id", art.Id);
                 return datos.ejecutarAccion();
             }

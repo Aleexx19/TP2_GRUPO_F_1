@@ -3,13 +3,6 @@ using Business.Articulo;
 using Business.Marca;
 using Domain.Entities;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace TP2_GRUPO_F_1
@@ -18,9 +11,13 @@ namespace TP2_GRUPO_F_1
     {
 
         private ArticuloEntity artic = null;
+        private int idCat = 0, idMarca = 0, idArt=0;
         public frmModificarArticulo(ArticuloEntity artic)
         {
             this.artic = artic;
+            idCat = this.artic.Categoria.Id;
+            idMarca = this.artic.Marca.Id;
+            idArt = this.artic.Id;
             InitializeComponent();
         }
         private void frmModificarArticulo_Load(object sender, EventArgs e)
@@ -42,8 +39,8 @@ namespace TP2_GRUPO_F_1
             txtPrecio.Text = artic.Precio.ToString();
             txtCodigo.Text = artic.CodArticulo;
             txtUrlImagen.Text = artic.Imagen.UrlImagen;
-            cboCategoria.SelectedValue = artic.Categoria.Id;
-            cboMarca.SelectedValue = artic.Marca.Id;
+            cboCategoria.SelectedValue = idCat;
+            cboMarca.SelectedValue = idMarca;
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -70,6 +67,10 @@ namespace TP2_GRUPO_F_1
 
             // Crear una nueva instancia de ArticuloEntity con los datos del formulario
             ArticuloEntity nuevoArticulo = new ArticuloEntity();
+            nuevoArticulo.Imagen = new ImagenEntity();
+            nuevoArticulo.Marca = new MarcaEntity();
+            nuevoArticulo.Categoria = new CategoriaEntity();
+            nuevoArticulo.Id = idArt;
             nuevoArticulo.Nombre = txtNombre.Text;
             nuevoArticulo.Descripcion = txtDescricpion.Text;
             nuevoArticulo.Precio = Convert.ToDecimal(txtPrecio.Text);
