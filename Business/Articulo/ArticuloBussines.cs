@@ -28,7 +28,7 @@ namespace Business.Articulo
                 throw ex;
             }
         }
-         
+
         public int agregarArticulo(ArticuloEntity nuevo)
         {
             ArticuloImp artImp = new ArticuloImp();
@@ -57,8 +57,20 @@ namespace Business.Articulo
             }
 
         }
+        public int ModificarArticulo(ArticuloEntity categoria)
+        {
+            ArticuloImp catImp = new ArticuloImp();
 
-    }
-   
+            try
+            {
+                return catImp.ModificarArticulo(categoria);
+            }
+            catch (Exception ex)
+            {
 
+                throw ex;
+            }
+        }
     }
+
+}
