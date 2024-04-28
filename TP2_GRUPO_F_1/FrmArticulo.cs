@@ -20,6 +20,8 @@ namespace TP2_GRUPO_F_1
         {
             InitializeComponent();
         }
+        
+        
         private void FrmArticulo_Load(object sender, EventArgs e)
         {
             var listArticulo = new List<ArticuloEntity>();
@@ -85,6 +87,18 @@ namespace TP2_GRUPO_F_1
                 var seleccionado = (ArticuloEntity)dgvArticulo.CurrentRow.DataBoundItem;
                 cargarImagen(seleccionado.Imagen.UrlImagen);
             }
+        }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+
+            List<ArticuloEntity> listaFiltro = null ;
+             var ArticuloBusca = new ArticuloBussines();
+             
+            listaFiltro = ArticuloBusca.GetArticulo();
+            listaFiltro = listaFiltro.Where(a => txtBuscar.Text.Contains(a.Nombre)).ToList();
+            dgvArticulo.DataSource = null;
+            dgvArticulo.DataSource= listaFiltro;
         }
     }
 }
