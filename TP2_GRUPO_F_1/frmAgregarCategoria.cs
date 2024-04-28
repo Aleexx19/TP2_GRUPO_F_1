@@ -46,6 +46,7 @@ namespace TP2_GRUPO_F_1
                 if (cateBusiness.AgregarCategoria(cate) > 0)
                 {
                     MessageBox.Show("Se agregó una Categoria con éxito.");
+                    Close();
                 }
                 else
                 {
