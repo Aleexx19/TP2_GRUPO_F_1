@@ -96,5 +96,37 @@ namespace Dao.Implements
                 throw ex;
             }
         }
+        public int Corroborar(int id)
+        {
+            DataAccess datos = new DataAccess();
+            string consulta = @"SELECT COUNT (*) AS CONTADOR 
+                                FROM CATEGORIAS C
+                                INNER JOIN ARTICULOS A ON(C.Id = A.IdCategoria)
+                                WHERE C.Id = @id";
+            int contador = 0;
+            try
+            {
+                datos.setearConsulta(consulta);
+                datos.setearParametro("@id", id);
+                datos.ejecutarLectura();
+
+                while (datos.Reader.Read())
+                {
+
+                    contador = (int)datos.Reader["CONTADOR"];
+
+                }
+                return contador;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally { datos.cerrarConexion(); }
+
+        }
+
     }
 }
+

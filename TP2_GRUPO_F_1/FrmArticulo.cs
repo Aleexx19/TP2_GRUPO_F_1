@@ -117,19 +117,38 @@ namespace TP2_GRUPO_F_1
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
+            ArticuloEntity seleccionada;
+            seleccionada = (ArticuloEntity)dgvArticulo.CurrentRow.DataBoundItem;
 
+            var ventana = new frmModificarArticulo(seleccionada);
+            ventana.ShowDialog();
+            cargar();
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
+            
+            var listaFiltro = new ArticuloBussines().GetArticulo()
+                .Where(a => a.Nombre.ToUpper().Contains(txtBuscar.Text.ToUpper()))
+                .ToList();
 
-            List<ArticuloEntity> listaFiltro = null ;
-             var ArticuloBusca = new ArticuloBussines();
-             
-            listaFiltro = ArticuloBusca.GetArticulo();
-            listaFiltro = listaFiltro.Where(a => txtBuscar.Text.Contains(a.Nombre)).ToList();
+            if (listaFiltro.Count == 0)
+            {
+                listaFiltro = new ArticuloBussines().GetArticulo();
+            }
+
             dgvArticulo.DataSource = null;
-            dgvArticulo.DataSource= listaFiltro;
+            dgvArticulo.DataSource = listaFiltro;
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtBuscar_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

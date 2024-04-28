@@ -78,6 +78,11 @@ namespace TP2_GRUPO_F_1
                 var categoBusiness = new CategoriaBusiness();
                 try
                 {
+                    if (categoBusiness.Corroborar(seleccionada.Id) > 0)
+                    {
+                        MessageBox.Show("Está Categoria tiene un registro en Articulo.");
+                        return;
+                    }
                     if (categoBusiness.EliminarCategoria(seleccionada.Id) > 0)
                     {
                         MessageBox.Show("Se Elimino con éxito.");

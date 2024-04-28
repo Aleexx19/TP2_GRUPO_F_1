@@ -35,6 +35,7 @@
             this.pbxImagenArticulo = new System.Windows.Forms.PictureBox();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.txtBuscar = new System.Windows.Forms.TextBox();
+            this.lbFiltro = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvArticulo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxImagenArticulo)).BeginInit();
             this.SuspendLayout();
@@ -43,7 +44,7 @@
             // 
             this.dgvArticulo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvArticulo.Location = new System.Drawing.Point(9, 31);
-            this.dgvArticulo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgvArticulo.Margin = new System.Windows.Forms.Padding(2);
             this.dgvArticulo.Name = "dgvArticulo";
             this.dgvArticulo.RowHeadersWidth = 51;
             this.dgvArticulo.RowTemplate.Height = 24;
@@ -85,7 +86,7 @@
             // pbxImagenArticulo
             // 
             this.pbxImagenArticulo.Location = new System.Drawing.Point(814, 31);
-            this.pbxImagenArticulo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pbxImagenArticulo.Margin = new System.Windows.Forms.Padding(2);
             this.pbxImagenArticulo.Name = "pbxImagenArticulo";
             this.pbxImagenArticulo.Size = new System.Drawing.Size(229, 220);
             this.pbxImagenArticulo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -94,7 +95,7 @@
             // 
             // btnBuscar
             // 
-            this.btnBuscar.Location = new System.Drawing.Point(426, 276);
+            this.btnBuscar.Location = new System.Drawing.Point(356, 272);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(75, 23);
             this.btnBuscar.TabIndex = 5;
@@ -104,16 +105,28 @@
             // 
             // txtBuscar
             // 
-            this.txtBuscar.Location = new System.Drawing.Point(250, 276);
+            this.txtBuscar.Location = new System.Drawing.Point(207, 274);
             this.txtBuscar.Name = "txtBuscar";
-            this.txtBuscar.Size = new System.Drawing.Size(155, 20);
+            this.txtBuscar.Size = new System.Drawing.Size(131, 20);
             this.txtBuscar.TabIndex = 6;
+            this.txtBuscar.TextChanged += new System.EventHandler(this.txtBuscar_TextChanged);
+            // 
+            // lbFiltro
+            // 
+            this.lbFiltro.AutoSize = true;
+            this.lbFiltro.Location = new System.Drawing.Point(172, 277);
+            this.lbFiltro.Name = "lbFiltro";
+            this.lbFiltro.Size = new System.Drawing.Size(29, 13);
+            this.lbFiltro.TabIndex = 7;
+            this.lbFiltro.Text = "Filtro";
+            this.lbFiltro.Click += new System.EventHandler(this.label1_Click);
             // 
             // FrmArticulo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1102, 415);
+            this.ClientSize = new System.Drawing.Size(1102, 403);
+            this.Controls.Add(this.lbFiltro);
             this.Controls.Add(this.txtBuscar);
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.pbxImagenArticulo);
@@ -121,7 +134,7 @@
             this.Controls.Add(this.btnModificar);
             this.Controls.Add(this.btnAgregar);
             this.Controls.Add(this.dgvArticulo);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FrmArticulo";
             this.Text = "Articulos";
             this.Load += new System.EventHandler(this.FrmArticulo_Load);
@@ -141,5 +154,6 @@
         private System.Windows.Forms.PictureBox pbxImagenArticulo;
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.TextBox txtBuscar;
+        private System.Windows.Forms.Label lbFiltro;
     }
 }
