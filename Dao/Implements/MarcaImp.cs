@@ -65,7 +65,7 @@ namespace Dao.Implements
         public int ModificarMarca(MarcaEntity marca)
         {
             DataAccess datos = new DataAccess();
-            string consulta = "update marcas set Descripcion = @descripcion where Id = @id "; //Acá armo la consulta
+            string consulta = "update marcas set Descripcion = @descripcion where Id = @id ";
 
             try
             {
@@ -84,14 +84,17 @@ namespace Dao.Implements
                 datos.cerrarConexion();
             }
         }
-
+        
         public int EliminarMarca(int id)
         {
+            var articulos = new ArticuloEntity();
             DataAccess datos = new DataAccess();
             try
             {
                 datos.setearConsulta("DELETE MARCAS WHERE Id = @id");
+                
                 datos.setearParametro("@id", id);
+               
                 return datos.ejecutarAccion();
             }
             catch (Exception ex)

@@ -127,13 +127,15 @@ namespace Dao.Implements
                 datos.cerrarConexion();
             }
         }
-
+        //Acá lo mismo de validaciones.
         public void Eliminar(int id)
         {
             try
             {
                 DataAccess datos = new DataAccess();
-                datos.setearConsulta("delete from ARTICULOS where Id = @id");
+                datos.setearConsulta("delete ARTICULOS where Id = @id");
+                datos.setearConsulta("delete IMAGENES where IdArticulo = @id");//borra la imagen
+
                 datos.setearParametro("@id", id);
                 datos.ejecutarAccion();
             }
