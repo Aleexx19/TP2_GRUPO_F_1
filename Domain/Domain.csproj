@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="Entities\ArticuloEntity.cs" />
     <Compile Include="Entities\CategoriaEntity.cs" />
+    <Compile Include="Entities\ImagenEntity.cs" />
     <Compile Include="Entities\MarcaEntity.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

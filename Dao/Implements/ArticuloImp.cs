@@ -12,11 +12,27 @@ namespace Dao.Implements
             var listArticulos = new List<ArticuloEntity>();
             DataAccess datos = new DataAccess();
 
+            #region Consulta
+            string consulta = @"SELECT  
+                                A.ID, 
+                                A.CODIGO, 
+                                A.NOMBRE, 
+                                A.DESCRIPCION, 
+                                A.IdMarca, 
+                                M.Descripcion AS DSM,
+                                A.IdCategoria, 
+                                C.Descripcion AS DSC,
+                                A.Precio,
+                                I.ImagenUrl
+                                FROM ARTICULOS A 
+                                INNER JOIN MARCAS M ON (A.IdMarca=M.Id)
+                                INNER JOIN CATEGORIAS C ON (A.IdCategoria=C.Id)
+                                INNER JOIN IMAGENES I ON(A.Id = I.IdArticulo)";
+            #endregion
+
             try
             {
-                datos.setearConsulta("SELECT  A.ID, A.CODIGO, A.NOMBRE, A.DESCRIPCION, A.IdMarca, M.Descripcion AS DSM," +
-                    " A.IdCategoria, C.Descripcion AS DSC, A.Precio  FROM ARTICULOS A INNER JOIN MARCAS M ON (A.IdMarca=M.Id)" +
-                    " INNER JOIN CATEGORIAS C ON (A.IdCategoria=C.Id)");
+                datos.setearConsulta(consulta);
 
                 datos.ejecutarLectura();
                 
@@ -30,12 +46,14 @@ namespace Dao.Implements
 
                     articulo.Marca = new MarcaEntity();
                     articulo.Categoria = new CategoriaEntity();
+                    articulo.Imagen = new ImagenEntity();
 
                     articulo.Marca.Id = (int)datos.Reader["IdMarca"];
                     articulo.Marca.Descripcion = (string)datos.Reader["DSM"];
                     articulo.Categoria.Id = (int)datos.Reader["IdCategoria"];
                     articulo.Categoria.Descripcion = (string)datos.Reader["DSC"];
                     articulo.Precio = (decimal)datos.Reader["Precio"];
+                    articulo.Imagen.UrlImagen = (string)datos.Reader["ImagenUrl"];
 
                     listArticulos.Add(articulo);
                 }
@@ -54,7 +72,7 @@ namespace Dao.Implements
 
         public int AgregarArticulo(ArticuloEntity art)
         {
-            DataAccess datos = new DataAccess(); //La proxima linea necesita agregar Categoria y Marca !
+            DataAccess datos = new DataAccess(); 
             string consulta = "INSERT ARTICULOS " +
                               "VALUES(@codigo,@nombre,@descripcion,@idMarca,@idCategoria,@precio)";
 

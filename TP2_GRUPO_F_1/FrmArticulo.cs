@@ -26,11 +26,27 @@ namespace TP2_GRUPO_F_1
             var ArticuloNegocio = new ArticuloBussines();
             listArticulo = ArticuloNegocio.GetArticulo();
             dgvArticulo.DataSource = listArticulo;
-               
-
+            ocultarColumnas();
+            cargarImagen(listArticulo[0].Imagen.UrlImagen);
         }
 
+        private void ocultarColumnas()
+        {
+            dgvArticulo.Columns["Imagen"].Visible = false;
+            dgvArticulo.Columns["Id"].Visible = false;
+        }
 
+        private void cargarImagen(string imagen)
+        {
+            try
+            {
+                pbxImagenArticulo.Load(imagen);
+            }
+            catch (Exception ex)
+            {
+                pbxImagenArticulo.Load("https://img.freepik.com/vector-gratis/ilustracion-icono-galeria_53876-27002.jpg?size=626&ext=jpg&ga=GA1.1.1687694167.1713916800&semt=ais");
+            }
+        }
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
@@ -62,9 +78,13 @@ namespace TP2_GRUPO_F_1
 
         }
 
-        private void dgvArticulo_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void dgvArticulo_SelectionChanged(object sender, EventArgs e)
         {
-
+            if (dgvArticulo.CurrentRow != null)
+            {
+                var seleccionado = (ArticuloEntity)dgvArticulo.CurrentRow.DataBoundItem;
+                cargarImagen(seleccionado.Imagen.UrlImagen);
+            }
         }
     }
 }
