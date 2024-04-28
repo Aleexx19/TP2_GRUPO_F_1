@@ -1,4 +1,5 @@
-﻿using Business.Articulo;
+﻿using Business;
+using Business.Articulo;
 using Business.Marca;
 using Domain.Entities;
 using System;
@@ -20,6 +21,9 @@ namespace TP2_GRUPO_F_1
         {
             InitializeComponent();
         }
+
+        private List<ArticuloEntity> listArticulo;
+
         private void FrmArticulo_Load(object sender, EventArgs e)
         {
             var listArticulo = new List<ArticuloEntity>();
@@ -48,12 +52,26 @@ namespace TP2_GRUPO_F_1
             }
         }
 
+        private void cargar()
+        {
+            var negocio = new ArticuloBussines();
+            try
+            {
+                listArticulo = negocio.GetArticulo();
+                dgvArticulo.DataSource = listArticulo;
+                dgvArticulo.Refresh();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+        }
+
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             frmAgregarArticulo agregar = new frmAgregarArticulo();
             agregar.ShowDialog();
-
-
+            cargar();
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
@@ -85,6 +103,11 @@ namespace TP2_GRUPO_F_1
                 var seleccionado = (ArticuloEntity)dgvArticulo.CurrentRow.DataBoundItem;
                 cargarImagen(seleccionado.Imagen.UrlImagen);
             }
+        }
+
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

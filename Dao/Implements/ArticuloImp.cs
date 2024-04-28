@@ -72,9 +72,28 @@ namespace Dao.Implements
 
         public int AgregarArticulo(ArticuloEntity art)
         {
-            DataAccess datos = new DataAccess(); 
-            string consulta = "INSERT ARTICULOS " +
-                              "VALUES(@codigo,@nombre,@descripcion,@idMarca,@idCategoria,@precio)";
+            DataAccess datos = new DataAccess();
+
+            #region Consulta
+            string consulta = @"BEGIN TRY
+                                BEGIN TRAN
+
+                                INSERT ARTICULOS 
+                                VALUES(@codigo,@nombre,@descripcion,@idMarca,@idCategoria,@precio)
+
+                                DECLARE @ID INT;
+                                SET @ID = SCOPE_IDENTITY();
+
+                                INSERT IMAGENES 
+                                VALUES(@ID,@imagenUrl)
+
+                                COMMIT TRAN
+                                END TRY
+                                BEGIN CATCH
+                                IF @@TRANCOUNT > 0
+                                ROLLBACK TRAN;
+                                END CATCH";
+            #endregion
 
             try
             {
@@ -85,6 +104,7 @@ namespace Dao.Implements
                 datos.setearParametro("@idMarca", art.Marca.Id);
                 datos.setearParametro("@idCategoria", art.Categoria.Id);
                 datos.setearParametro("@precio", art.Precio);
+                datos.setearParametro("@imagenUrl",art.Imagen.UrlImagen);
                 return datos.ejecutarAccion(); 
             }
             catch (Exception ex)
