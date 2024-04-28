@@ -46,7 +46,8 @@ namespace TP2_GRUPO_F_1
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
-            MarcaEntity seleccionada; //Estoy trabajando en el modificar de Marca.
+
+            MarcaEntity seleccionada; 
             seleccionada = (MarcaEntity)dgvMarca.CurrentRow.DataBoundItem;
 
             var ventana = new frmModificarMarca(seleccionada);
@@ -72,6 +73,11 @@ namespace TP2_GRUPO_F_1
                 var marcaBusiness = new MarcaBusiness();
                 try
                 {
+                    if (marcaBusiness.Corrobar(seleccionada.Id) > 0)
+                    {
+                        MessageBox.Show("Está Marca tiene un registro en Articulo.");
+                        return;
+                    }
                     if (marcaBusiness.EliminarMarca(seleccionada.Id) > 0)
                     {
                         MessageBox.Show("Se elimino con éxito.");
